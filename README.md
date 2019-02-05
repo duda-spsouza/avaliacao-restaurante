@@ -29,6 +29,8 @@ logo abaixo haverá um lista de restaurantes "fakes" para o usuário "votar".
 - Após clicar em salvar o registro da lista é alterado
 - A coluna "Humor" com icones de emotions indica através da avaliação do usuário o quanto ficou satisfeito/insatisfeito com o restaurante; 
 
+## Aplicação
+Link do projeto https://avaliacao-restaurante.herokuapp.com/
 ## Melhorias
 - Deveria ter dado mais atenção para os testes;
 - Utilizar Geolocalização para localizar os restaurantes mais próximos

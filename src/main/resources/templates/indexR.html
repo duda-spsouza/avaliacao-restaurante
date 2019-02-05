@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <title>Restaurante</title>
+      <!-- Bootstrap 3.3.6 -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>
+       
+      <script th:src="@{/main.js}"></script>
+      <link th:href="@{/main.css}" rel="stylesheet" />
+       
+      <head>
+   <body ng-app="RestauranteManagement" ng-controller="RestauranteController">
+      <h2>
+         <center>Avalie o restaurante</center>
+      </h2>
+      <form ng-submit="submitRestaurante()">
+      <div class="container">
+      		<div class="form group">
+            	<label for="id">ID: {{restauranteForm.restauranteId}}</label>
+        	</div>
+             <div class="form group">
+            	<label for="nome">Nome</label>
+            	<input type="text" name="nome" class="form-control" readonly="readonly" ng-model="restauranteForm.restauranteNome">
+        	</div>
+        	<div class="form group">
+            	<label for="nome">Endereco</label>
+            	<input type="text" name="nome" class="form-control" readonly="readonly" ng-model="restauranteForm.restauranteEndereco">
+        	</div>
+        	<div class="form group">
+            	<label for="nome">Voto</label>
+            	<select  class="form-control" ng-model="restauranteForm.restauranteVoto" required ng-options="x for x in names">
+				</select>
+        	</div>
+        	<div class="form group">
+            	<label for="nome">Dia da Semana</label>
+            	<select class="form-control" required ng-model="restauranteForm.restauranteDiaSemana" ng-options="y for y in semana">
+            	</select>
+        	</div>
+        	<input type="submit" value="Salvar" class="btn btn-success">
+        </div>
+         
+      </form>
+      <br/>
+      <div class="container">
+      <table class="table table-sm">
+         <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Endereco</th>
+            <th>Voto</th>
+            <th>Semana</th>
+            <th>Votar</th>
+            <th>Humor</th>
+         </tr>
+         <tr ng-repeat="restaurante in restaurantes">
+            <td> {{ restaurante.restauranteId }}</td>
+            <td> {{ restaurante.restauranteNome}}</td>
+            <td>{{ restaurante.restauranteEndereco}}</td>
+            <td>{{ restaurante.restauranteVoto}}</td>
+            <td>{{ restaurante.restauranteDiaSemana}}</td>
+            <td>
+            <button class="btn btn-primary" ng-click="editRestaurante(restaurante)">Votar</button>
+            </td>
+            <td>
+            <i  style="font-size: 40px;" ng-class="{'1': 'far fa-angry', '5': 'far fa-grin-hearts','4': 'far fa-smile-beam','3':'far fa-flushed','2':'far fa-frown'}[restaurante.restauranteVoto]"></i>
+            </td>
+         </tr>
+      </table>
+      </div>
+   </body>
+</html>

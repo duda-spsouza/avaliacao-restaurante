@@ -3,8 +3,8 @@
 ## Introdução 
 Projeto para avaliação de restaurantes como o uso das seguintes tecnologias
  - Angularjs
- - Spring book 2
- - Spring book thymeleaf
+ - Spring boot 2
+ - Spring boot thymeleaf
  - Java 1.8
  - Junit jupiter
  - Bootstrap
